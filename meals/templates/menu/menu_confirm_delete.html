@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Delete Menu{% endblock %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    ¿Estás seguro que deseas borrar el menu del dia {{ object.date }} para el pais {{ object.country }}?
+    <input type="submit" value="Sí" />
+</form>
+{% endblock %}

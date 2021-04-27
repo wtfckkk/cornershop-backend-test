@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Menus{% endblock %}
+
+{% block content %}
+<h1>{{ menu.name }}</h1>
+<p>
+    <a class="btn btn-success" href="{% url "menu-list" %}">Back</a>
+</p>
+
+<div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+            <th width="100"> ID </th>
+            <th width="100"> MEAL </th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for meal in menu.meals.all %}
+        <tr>
+            <td>{{ meal.id }}</td>
+            <td>{{ meal.name }}</td>
+        </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}

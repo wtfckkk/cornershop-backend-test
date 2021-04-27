@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Slack{% endblock %}
+
+{% block content %}
+<p>
+    <a class="btn btn-success" href="{% url "menu-list" %}">Back</a>
+</p>
+
+    <p> {{ message }} </p>
+
+{% endblock %}

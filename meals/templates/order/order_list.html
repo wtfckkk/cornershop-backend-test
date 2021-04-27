@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+<h1>Orders</h1>
+
+<div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+            <th> EMPLOYEE </th>
+            <th> MEAL </th>
+            <th> CUSTOMIZATION </th>
+            <th> ORDER AT </th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for order in object_list %}
+        <tr>
+            <th>{{ order.employee }}</th>
+            <td>{{ order.meal }}</td>
+            <td>{{ order.customization }}</td>
+            <td>{{ order.created }}</td>
+        </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}

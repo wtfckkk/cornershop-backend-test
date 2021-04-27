@@ -1,0 +1,26 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="alert alert-info col-md-2" role="alert">
+  <span><b>Superuser</b></span>
+  <br>
+  <p>user: nora <br> pw: cornershop</p>
+</div>
+<h2>Login</h2>
+  <form method="post" style="display: inline-block;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success" type="submit" >Login</button>
+  </form>
+  <br>
+<div  style="margin-top: 50px">
+  <div class="alert alert-info col-md-3" role="alert">
+  <span ><b>Employees Login with Slack</b></span>
+    <a href="{{slack_url}}">
+      <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+    </a>
+  </div>
+</div>
+{% endblock %}

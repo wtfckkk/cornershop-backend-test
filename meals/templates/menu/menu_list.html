@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Menus{% endblock %}
+
+{% block content %}
+<h1>Menus</h1>
+
+<p>
+    <a href="{% url 'menu-new' %}" class="btn btn-success">
+        Add menu
+    </a>
+</p>
+<div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+            <th> ID </th>
+            <th> DATE </th>
+            <th> COUNTRY </th>
+            <th> SLACKED </th>
+            <th> STATE </th>
+            <th> ACTIONS </th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for menu in object_list %}
+        <tr>
+            <th>{{ menu.id }}</th>
+            <td>{{ menu.date }}</td>
+            <td>{{ menu.country }}</td>
+            <td>{{ menu.published }}</td>
+            <td>{{ menu.state }}</td>
+            <td>
+                <a href="{% url 'menu-notify-slack' menu.id %}" class="btn btn-info">Slack</a>
+                <a href="{% url 'menu-detail' menu.id %}" class="btn btn-info">Details</a>
+                <a href="{% url 'menu-edit' menu.id %}" class="btn btn-info">Edit</a>
+                <a href="{% url 'menu-delete' menu.id %}" class="btn btn-info">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}

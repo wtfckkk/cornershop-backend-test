@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Meals{% endblock %}
+
+{% block content %}
+<h1>Meals</h1>
+
+<p>
+    <a href="{% url 'meal-new' %}" class="btn btn-success">
+        Add meal
+    </a>
+</p>
+<div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+            <th> ID </th>
+            <th> NAME </th>
+            <th> ACTIONS </th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for meal in object_list %}
+        <tr>
+            <th>{{ meal.id }}</th>
+            <td>{{ meal.name }}</td>
+            <td>
+                <a href="{% url 'meal-delete' meal.id %}" class="btn btn-info">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}
